@@ -1,0 +1,35 @@
+
+.order-assigned{
+  display:block;
+}
+.order-in-progress{
+  display: none
+  ;
+}
+body {
+    font-family:Arial, Helvetica, sans-serif !important;
+    
+
+  }
+.container{
+  width: 70%;
+  margin-left: 10%;
+  border-radius: 30px;
+  background-color: #c5dff8;
+  box-shadow: 6px 6px 12px #CBD4E3,
+             -6px -6px 12px #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.row{
+  width: 95%;
+  margin:5px 0px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.col-2{
+  display: flex ;
+  justify-content: center;
+  align-items:center;
+  font-size: 7vh;
+}
