@@ -1,41 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="assets/css/styles-home.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Home</title>
 </head>
+
 <body>
-    <header id="header">
-        <div class="header-title">
-            <h1>Orders Deliverit!</h1>
+    <div class="title-header">
+        <h1>Welcome User</h1>
+    </div>
+    <div class="order-container">
+        <div id="orders-assigned">
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">inventory_2</span>
+                <span class="text">Order Assigned</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">inventory_2</span>
+                <span class="text">Order Assigned</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">inventory_2</span>
+                <span class="text">Order Assigned</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+    
         </div>
-    </header>
-    <div class="menu-delivery">
-        <div class="menu-item-container">
-            <div class="menu-item">
-                <span class="menu-item-icon material-symbols-rounded">
-                    inventory_2
-                </span>
-                <button onclick="OrderAssignedClick()">Orders assigned</button>
+        
+        <div id="orders-in-progress">
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">history</span>
+                <span class="text">Order In Progress</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
             </div>
-            <div class="menu-item">
-                <span class="menu-item-icon material-symbols-rounded">
-                    history
-                </span>
-                <button onclick="OrderinProgressClick()"> Orders in progress</button>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">history</span>
+                <span class="text">Order In Progress</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
             </div>
-            <div class="menu-item">
-                <span class="menu-item-icon material-symbols-rounded">
-                    done_all
-                </span>
-                <button onclick="OrderCompleteClick()">Orders Complete</button>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">history</span>
+                <span class="text">Order In Progress</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
             </div>
+    
+        </div>
+        <div id="orders-completed">
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">done_all</span>
+                <span class="text">Order Completed</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">done_all</span>
+                <span class="text">Order Completed</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+            <div class="order-item">
+                <span class="icon material-symbols-rounded">done_all</span>
+                <span class="text">Order Completed</span>
+                <div class="date-and-time">
+                    <span class="time">19:05 pm</span>
+                    <span class="date">21/10/2022</span>
+                </div>
+                <button type="submit">show details</button>
+            </div>
+    
+        </div>
+    </div>
+
+    <div class="navbar">
+        <div class="navigation">
+            <ul>
+                <li class="list">
+                    <a onclick="assignedClick()">
+                        <span class="icon material-symbols-rounded">inventory_2</span>
+                        <span class="text"> Assigned</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a onclick="progressClick()">
+                        <span class="icon material-symbols-rounded">history</span>
+                        <span class="text"> In progress</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a onclick="completedClick()">
+                        <span class="icon material-symbols-rounded">done_all</span>
+                        <span class="text">Completed</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
         </div>
     </div>
     <script src="assets/js/home.js"></script>
 </body>
+
 </html>
