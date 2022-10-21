@@ -1,32 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
     font-family: 'Poppins', sans-serif;
-    background:linear-gradient(to right,#3648ce64,#01c2ed7b);
+    background: var(--clr);
+    height: 100vh;
+}
+.title-header{
+    padding: .2em;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+}
+.order-container{
+    position: relative;
+    background: rgba(255,255,255, .5);
+    padding-top: 3em;
+    border-radius: 10px;
+    margin: auto;
+    width: 90%;
+    height: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
-
-#header{
-    display: flex;
-    justify-content: center;
-    background-color: rgba(240, 248, 255, 0.5);
-    border-radius: 15px;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.293) ;
-}
-.menu-delivery{
-    display: flex;
-    justify-content: center;
-    width: 240px;
-    margin-top: 2rem;
-    background: rgba(255,255,255, .5);
-    padding: 3rem;
-    border-radius: 10px;
-    position:relative;
-}
-.menu-delivery::before{
+.order-container::before{
     content:'';
     position: absolute;
     background: rgba(255,255,255, .15);
@@ -34,28 +36,142 @@ body{
     transform:rotate(-5deg);
     z-index: -1;
 }
-.menu-item-container{
-    position:relative;
-}
-.menu-item .menu-item-icon{
-    position: absolute;
-    padding-top:10px ;
-    color: white;
-    left:1.4rem;
-    font-size: 2rem;
-    opacity: .7;
-}
-.menu-item button{
-    background: black;
-    width: 270px;
-    height: 45px;
-    font-size: .85rem;
-    color: white;
-    padding: .5rem;
-    margin-top: 5px;
-    padding-left: calc( 1rem * 2.5);
-    border-radius:100px;
+.order-container button{
+    display: flex;
+    align-items: center;
+    margin-right: 3px;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    font-size: .7em;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: background .5s;
+    background:#5d62e7c8;
+    color:white;
+    border:none;
+}
+.order-container button:hover{
+    background:#5d62e7ed;
+    border:1.5px solid black;
+}
+.order-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+.order-item:hover{
+    background-color:var(--clr);
+    border-radius: 5px;
+}
+
+#orders-in-progress,
+#orders-completed{
+    display: none;
+}
+.navbar{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+
+
+.navigation {
+    position: relative;
+    width: 380px;
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+
+.navigation ul li {
+
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: #000;
+}
+
+.navigation ul li.active a .icon {
+    transform: translateY(-35px);
+}
+.navigation ul li:hover a .icon {
+    transform: translateY(-35px);
+}
+.navigation ul li a .text {
+    position: absolute;
+    color: black;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.navigation ul li:hover a .text {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.indicator {
+    position: absolute;
+    top:-50%;
+    width:70px;
+    height: 70px;
+    background: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr) ;
+    transition: 0.5s;
+}
+.navigation ul li:nth-child(1).active ~.indicator {
+    transform: translateX(calc(70px*0));
+}
+.navigation ul li:nth-child(2).active ~.indicator {
+    transform: translateX(calc(70px*2));
+}
+.navigation ul li:nth-child(3).active ~.indicator {
+    transform: translateX(calc(70px*4));
+}
+:root {
+    --clr:  #01c2edb5;
 }
