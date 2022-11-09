@@ -10,6 +10,7 @@ body{
 }
 .login-card{
     width: 215px;
+    height: 485px;
     background: rgba(255,255,255, .5);
     padding: 3rem;
     border-radius: 10px;
@@ -24,6 +25,7 @@ body{
     z-index: -1;
 }
 .login-card-logo{
+    
     margin-bottom: 1rem;
 }
 .login-card-logo img{
@@ -33,10 +35,11 @@ body{
 .login-card-header,
 .logo-card-footer{
     text-align: center;
+    
 }
 .login-card a{
     text-decoration: none;
-    color:#35339a;
+    color:#0e0d4a;
 
 }
 .login-card a:hover{
@@ -72,12 +75,14 @@ text-decoration: underline;
 .login-card-form .checkbox{
     display: flex;
     align-items: center;
+    
     gap:7px;
 }
 .login-card-form .form-item-other{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: calc(1rem*.8);
     margin-bottom: .5rem;
 }
