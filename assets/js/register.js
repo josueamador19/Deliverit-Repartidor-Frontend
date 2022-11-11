@@ -8,7 +8,7 @@ form.addEventListener("submit",e=>{
     e.preventDefault()
     let entrar=false
     let regexEmail=/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if(nombre.value.length<6){
+    if(nombre.value.length<5){
         alert("Nombre muy corto");
         entrar=true
     }
@@ -24,6 +24,6 @@ form.addEventListener("submit",e=>{
         entrar=true
     }
     alert("Usuario registrado");
-    window.location.href('home.html')
+    windows.location.href('home.html');
     form.reset();
 })
