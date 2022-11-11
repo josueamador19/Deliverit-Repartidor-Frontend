@@ -20,14 +20,14 @@
                 <h1>Sign in</h1>
                 <div>Please login to use Deliverit!</div>
             </div>
-            <form id="form" action="" class="login-card-form">
+            <form id="form" action="" class="login-card-form" method="POST">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">person</span>
-                    <input id="username"type="text" placeholder="Enter Username" required autofocus>
+                    <input id="username"type="text" placeholder="Enter Username"  autofocus>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input id="password" type="password" placeholder="Enter Password" required>
+                    <input id="password" type="password" placeholder="Enter Password" >
                 </div>
                 <div class="form-item-other">
                     <div class="checkbox">
@@ -36,7 +36,7 @@
                     </div>
                     <a href="#">I forgot my password!</a>
                 </div>
-                <button onclick="loginClick()">Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
             <div class="login-card-footer">
                 Don't have an account? <a href="register.html">Create a free account</a>

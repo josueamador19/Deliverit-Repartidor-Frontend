@@ -11,7 +11,6 @@ form.addEventListener("submit",e=>{
     if(nombre.value.length<6){
         alert("Nombre muy corto");
         entrar=true
-        
     }
     if(!regexEmail.test(email.value)){
         alert("El email no es valido");
@@ -24,5 +23,5 @@ form.addEventListener("submit",e=>{
         alert("La contraseña no es valida");
         entrar=true
     }
-    
+    form.reset();
 })
