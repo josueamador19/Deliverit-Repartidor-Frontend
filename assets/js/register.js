@@ -23,5 +23,7 @@ form.addEventListener("submit",e=>{
         alert("La contraseña no es valida");
         entrar=true
     }
+    alert("Usuario registrado");
+    window.location.href('home.html')
     form.reset();
 })
