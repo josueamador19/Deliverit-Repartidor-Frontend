@@ -24,6 +24,7 @@ form.addEventListener("submit",e=>{
         entrar=true
     }
     alert("Usuario registrado");
-    windows.location.href('home.html');
     form.reset();
+    window.location.href='index.html';
+    
 })
