@@ -12,6 +12,7 @@ const form=document.getElementById('form')
 
 form.addEventListener("submit",e=>{
   e.preventDefault();
+  
   users.forEach(user => {
     if(nombre.value===user.name && password.value===user.pass){
       window.location.href='home.html';
@@ -26,5 +27,8 @@ form.addEventListener("submit",e=>{
     }else{
       alert("Usuario invalido")
     }
-    */
+    
+})*/
 })
+
+
