@@ -4,6 +4,8 @@ const password= document.getElementById('password');
 const email= document.getElementById('email');
 const phoneNumber= document.getElementById('phoneNumber');
 const form=document.getElementById('form')
+
+
 form.addEventListener("submit",e=>{
     e.preventDefault()
     let entrar=false
