@@ -1,3 +1,22 @@
+function renderizeAvailable(response){
+    $('#orders-Avalaible').append(" ");
+    response.forEach((order, orderindex) => {
+        $('#orders-Available').append(
+            `<div class="order-item">
+            <div class="row">
+                <div class="col headerOrder">
+                    <span>ID: ${order.id}</span>
+                    <span>${order.date}</span>
+                </div>
+            </div>
+            <span class="text">${order.status}</span>
+            <div class="moreDetails" data-orderindex="${order.id}" onclick="viewModalOrder(this)">
+                <span>more details <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+        </div> `
+        );
+    })
+}
 function assignedClick(){
     document.getElementById('orders-assigned').style.display ='block';
     document.getElementById('orders-Available').style.display ='none';
@@ -11,7 +30,7 @@ function assignedClick(){
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
-  
+
     
 } 
 //TODO: is not logger, not navigation 
@@ -22,6 +41,13 @@ function progressClick(){
     document.getElementById('orders-completed').style.display ='none';
     $('.active').removeClass('active');
     $('.available').addClass('active');
+    const options = {method: 'GET',credentials: 'include'};
+
+    fetch('http://localhost:3000/roundsman/ordersAvailables', options)
+    .then(response => response.json())
+    .then(response => renderizeAvailable(response))
+    .catch(err => console.error(err));
+    
 }
 function completedClick(){
     document.getElementById('orders-assigned').style.display ='none';
@@ -40,7 +66,7 @@ function completedClick(){
 let orders = [];
 
 (async () => {
-   assignedClick();
+assignedClick();
 });
 
 
@@ -82,5 +108,8 @@ let orders = [];
     });
 
 function details(){
-    
+    $('#modalOrder').append(
+        `
+        `
+    )
 }

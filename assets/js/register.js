@@ -1,32 +1,31 @@
 
-const nombre= document.getElementById('username');
-const password= document.getElementById('password');
-const email= document.getElementById('email');
-const phoneNumber= document.getElementById('phoneNumber');
-const form=document.getElementById('form')
+
+function registerClick(){
+    const username = $('#username').val();
+    const email = $('#email').val();
+    const phoneNumber = $('#phoneNumber').val();
+    const password = $('#password').val();
+    console.log(username, email, phoneNumber, password);
+    if(username.length>0 && email.length>0 && phoneNumber.length>0 && password.length>0){
+        $.post("http://localhost:3000/roundsman/register",{
+            "name":username,
+            "email":email,
+            "phoneNumber":phoneNumber,
+            "password": password
+        }).done(function(response){
+            console.log(response);
+            document.cookie = 'username='+response.username+'; expire=31536000;';
+            document.cookie = 'id='+response._id+'; expire=31536000;';
+            window.location.href='home.html';
+        }).fail(function(xhr,status,res){
+            alert(xhr.responseText);
+        })
+    }
+}
 
 
 form.addEventListener("submit",e=>{
     e.preventDefault()
-    let entrar=false
-    let regexEmail=/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-    if(nombre.value.length<5){
-        alert("Nombre muy corto");
-        entrar=true
-    }
-    if(!regexEmail.test(email.value)){
-        alert("El email no es valido");
-        entrar=true
-    }
-    if(phoneNumber.value.length!==8){
-        alert("El campo debe de tener 8 digitos")
-    }
-    if(password.value.length<8){
-        alert("La contraseña no es valida");
-        entrar=true
-    }
-    alert("Usuario registrado");
-    form.reset();
-    window.location.href='index.html';
+    registerClick();
     
 })
