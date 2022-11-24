@@ -1,6 +1,7 @@
 function renderizeAvailable(response){
-    $('#orders-Avalaible').append(" ");
+    $('#orders-Avalaible').html('');
     response.forEach((order, orderindex) => {
+        
         $('#orders-Available').append(
             `<div class="order-item">
             <div class="row">
@@ -33,8 +34,7 @@ function assignedClick(){
 
     
 } 
-//TODO: is not logger, not navigation 
-//TODO: change route to localhost
+
 function progressClick(){
     document.getElementById('orders-assigned').style.display ='none';
     document.getElementById('orders-Available').style.display ='block';
@@ -107,6 +107,9 @@ assignedClick();
         }
     });
 
+function markDelivered(){
+    $.post
+}
 function details(){
     $('#modalOrder').append(
         `
