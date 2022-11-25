@@ -5,6 +5,7 @@ let locations = [
 
 var map1 = L.map('map', { scrollWheelZoom: false });
 var control;
+var coords = [];
 
 
 window.onload = async () => {
@@ -46,7 +47,7 @@ window.onload = async () => {
         };
     };
     
-    const coords = await getCoords();
+    coords = await getCoords();
     locations.push(L.latLng(coords.lat, coords.long));
         
     window.LRM = {
@@ -167,7 +168,12 @@ window.onload = async () => {
 
 
     control.on('routesfound', function(e) {
-        console.log(L.Routing.routeToGeoJson(e.routes[0]));
+        var routes = e.routes;
+        var summary = routes[0].summary;
+        // alert distance and time in km and minutes
+        distance = Number((summary.totalDistance / 1000)).toFixed(2);
+        $('#DistanceInfo').html((distance + ' KM'));
+        $('#TimeInfo').html((Math.round(summary.totalTime % 3600 / 60)+20)+ ' minutes');
     });
 
     L.Routing.errorControl(control).addTo(map1);
@@ -177,15 +183,56 @@ window.onload = async () => {
 
 function viewModalOrder(orderBtn) {
     const orderID = $(orderBtn).attr('data-orderindex');
-    const order = orders.find(ordert => ordert.ID == orderID);
-    console.log(orderID);
     $('#modalOrder').css('z-index', '999');
-    $('#idOrder').html(order.ID);
-    
-    const locations2 = [
-        L.latLng(14.059899, -87.220381),
-        L.latLng(14.053579, -87.221811)
-    ];
-    
-    control.setWaypoints(locations2.reverse())
+
+    const options = {method: 'GET',credentials: 'include'};
+
+    fetch('http://localhost:3000/roundsman/getOrderInfo/'+orderID, options)
+    .then(response => response.json())
+    .then(response => {
+        $('#idOrder').html(response.id);
+        $('#nameClient').html(response.client.name);
+        $('#paymentInfo').html(response.payment.credit_card_number);
+        $('#ServiceInfo').html(response.service);
+        $('#TotalInfo').html(response.total);
+        $('#products').html('');
+        response['products'].forEach(product => {
+            $('#products').append( `<div class="pr row center-y">
+            <img width="10%" src="${product.img}" alt="">
+            <div class="col infoPr">
+                <strong>${product.name}</strong><br>
+                <span>${product.store}</span>
+            </div>
+            <div class="col center-xy price">
+                <span>$${product.price}</span>
+            </div>
+        </div>`)
+        });
+        
+        const locations2 = [];
+        
+        locations2.push(L.latLng(coords.lat, coords.long))
+        response.locations.forEach(location => {
+            locations2.push(L.latLng(location.lat, location.lng))
+        })
+        console.log(locations2);
+        
+        control.setWaypoints(locations2)
+        $('#takeOrderbtn').css('display', 'none')
+        $('#otwOrderbtn').css('display', 'none')
+        $('#deliveredOrderbtn').css('display', 'none')
+        if (response.status === "Received") {
+            $('#takeOrderbtn').css('display', 'inline')
+            $('#takeOrderbtn').attr('data-idOrder', response.id)
+        }
+        if (response.status === "Preparing") {
+            $('#otwOrderbtn').css('display', 'inline')
+            $('#otwOrderbtn').attr('data-idOrder', response.id)
+        }
+        if (response.status === "OnTheWay") {
+            $('#deliveredOrderbtn').css('display', 'inline')
+            $('#deliveredOrderbtn').attr('data-idOrder', response.id)
+        }
+    })
+
 }

@@ -15,7 +15,7 @@ function registerClick(){
         }).done(function(response){
             //console.log(response);
             document.cookie = 'username='+response.username+'; expire=31536000;';
-            document.cookie = 'id='+response._id+'; expire=31536000;';
+            document.cookie = 'idRoundsman='+response._id+'; expire=31536000;';
             window.location.href='home.html';
         }).fail(function(xhr,status,res){
             alert(xhr.responseText);

@@ -14,7 +14,7 @@ function loginClick(){
       "password": password})
       .done(function(response){
         //console.log(response);
-        document.cookie='id='+response._id+'; expire=3253600;';
+        document.cookie='idRoundsman='+response._id+'; expire=3253600;';
         window.location.href='home.html';
       }).fail(function(xhr,status,res){
         alert(xhr.responseText);

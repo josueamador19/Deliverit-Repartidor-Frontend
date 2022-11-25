@@ -25,12 +25,48 @@
     <div  id="modalOrder">
         <div class="card">
             <div id="map"></div>
-            <div class="details">Detalles</div>
-            <h6 >ID: <span id="idOrder"></span></h6>
-            <h5> Products</h5>
+            <div class="data">
+                <div class="details">Details</div>
+                <h4 >ID: <span id="idOrder"></span></h4>
+                <div class="clientInfo">
+                    <table>
+                        <tr>
+                            <td>Name Client: </td>
+                            <td><span id="nameClient"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Payment: </td>
+                            <td><span id="paymentInfo"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Distance: </td>
+                            <td><span id="DistanceInfo"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Time: </td>
+                            <td><span id="TimeInfo"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Service fee: </td>
+                            <td>$<span id="ServiceInfo"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total: </td>
+                            <td>$<span id="TotalInfo"></span></td>
+                        </tr>
+                    </table>
+                </div>
+                <h5> Products</h5>
+                <div id="products"></div>
+            </div>
             <div class="bottomModal">
                 <button onclick="$('#modalOrder').css('z-index', '-999')" id="btn-hide-modal">Close </button>
-                <button id="btn-delivered">Mark delivered</button>
+
+                <button onclick="takeOrder(this)" class="btn-delivered" id="takeOrderbtn">Take order</button>
+
+                <button onclick="otwOrder(this)" class="btn-delivered" id="otwOrderbtn">Mark On the way</button>
+
+                <button onclick="deliveredOrder(this)" class="btn-delivered" id="deliveredOrderbtn">Mark delivered</button>
             </div>
         </div>
         
