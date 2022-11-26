@@ -187,7 +187,7 @@ function viewModalOrder(orderBtn) {
 
     const options = {method: 'GET',credentials: 'include'};
 
-    fetch('http://localhost:3000/roundsman/getOrderInfo/'+orderID, options)
+    fetch('https://deliverit-backend.vercel.app/roundsman/getOrderInfo/'+orderID, options)
     .then(response => response.json())
     .then(response => {
         $('#idOrder').html(response.id);

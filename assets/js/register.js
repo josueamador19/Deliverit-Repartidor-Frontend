@@ -7,7 +7,7 @@ function registerClick(){
     const password = $('#password').val();
     //console.log(username, email, phoneNumber, password);
     if(username.length>0 && email.length>0 && phoneNumber.length>0 && password.length>0){
-        $.post("http://localhost:3000/roundsman/register",{
+        $.post("https://deliverit-backend.vercel.app/roundsman/register",{
             "name":username,
             "email":email,
             "phoneNumber":phoneNumber,

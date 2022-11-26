@@ -7,7 +7,7 @@ function assignedClick(){
     
     const options = {method: 'GET',credentials: 'include'};
 
-    fetch('http://localhost:3000/roundsman/ordersName', options)
+    fetch('https://deliverit-backend.vercel.app/roundsman/ordersName', options)
     .then(response => response.json())
     .then(response => {
         console.log(response);
@@ -42,7 +42,7 @@ function progressClick(){
 
     const options = {method: 'GET',credentials: 'include'};
 
-    fetch('http://localhost:3000/roundsman/ordersAvailables', options)
+    fetch('https://deliverit-backend.vercel.app/roundsman/ordersAvailables', options)
     .then(response => response.json())
     .then(response => {
         $('#orders-Available').html('');
@@ -75,7 +75,7 @@ function completedClick(){
 
     const options = {method: 'GET',credentials: 'include'};
 
-    fetch('http://localhost:3000/roundsman/ordersCompleted', options)
+    fetch('https://deliverit-backend.vercel.app/roundsman/ordersCompleted', options)
     .then(response => response.json())
     .then(response => {
         $('#orders-completed').html('');
@@ -111,7 +111,7 @@ function takeOrder(btn) {
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/roundsman/takedOrder/"+orderID,
+        "url": "https://deliverit-backend.vercel.app/roundsman/takedOrder/"+orderID,
         "method": "PUT",
         beforeSend: function(xhr){
             xhr.withCredentials = true;
@@ -134,7 +134,7 @@ function deliveredOrder(btn) {
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/roundsman/markDeliveredOrder/"+orderID,
+        "url": "https://deliverit-backend.vercel.app/roundsman/markDeliveredOrder/"+orderID,
         "method": "PUT",
         beforeSend: function(xhr){
             xhr.withCredentials = true;
@@ -158,7 +158,7 @@ function otwOrder(btn) {
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/roundsman/OrderOnTheWay/"+orderID,
+        "url": "https://deliverit-backend.vercel.app/roundsman/OrderOnTheWay/"+orderID,
         "method": "PUT",
         beforeSend: function(xhr){
             xhr.withCredentials = true;
