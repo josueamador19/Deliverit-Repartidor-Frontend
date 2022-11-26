@@ -1,5 +1,5 @@
 if(window.location.hostname == '127.0.0.1')
-{window.location.href = 'http://localhost:5501/index.html'}
+{window.location.href = 'http://localhost:'+window.location.port+'/index.html'}
 
 
 
