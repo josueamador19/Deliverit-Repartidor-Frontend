@@ -4,10 +4,13 @@ function assignedClick(){
     document.getElementById('orders-completed').style.display ='none';
     $('.active').removeClass('active');
     $('.assigned').addClass('active');
-    
+    const cookieValue = document.cookie
+    .split('; ')
+    .find((row)=>row.startsWith('idRoundsman='))
+    ?.split('=')[1];
     const options = {method: 'GET',credentials: 'include'};
 
-    fetch('http://localhost:3000/roundsman/ordersName', options)
+    fetch('http://localhost:3000/roundsman/ordersName/'+cookieValue, options)
     .then(response => response.json())
     .then(response => {
         console.log(response);
@@ -41,7 +44,7 @@ function progressClick(){
     $('.available').addClass('active');
 
     const options = {method: 'GET',credentials: 'include'};
-
+    
     fetch('http://localhost:3000/roundsman/ordersAvailables', options)
     .then(response => response.json())
     .then(response => {
@@ -74,8 +77,11 @@ function completedClick(){
     $('.completed').addClass('active');
 
     const options = {method: 'GET',credentials: 'include'};
-
-    fetch('http://localhost:3000/roundsman/ordersCompleted', options)
+    const cookieValue = document.cookie
+    .split('; ')
+    .find((row)=>row.startsWith('idRoundsman='))
+    ?.split('=')[1];
+    fetch('http://localhost:3000/roundsman/ordersCompleted/'+cookieValue, options)
     .then(response => response.json())
     .then(response => {
         $('#orders-completed').html('');
